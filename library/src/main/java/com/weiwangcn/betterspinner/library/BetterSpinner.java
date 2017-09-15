@@ -42,21 +42,6 @@ public class BetterSpinner extends AutoCompleteTextView implements AdapterView.O
     }
 
     @Override
-    protected void onFocusChanged(boolean focused, int direction,
-                                  Rect previouslyFocusedRect) {
-        super.onFocusChanged(focused, direction, previouslyFocusedRect);
-        if (focused) {
-           
-            InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(getWindowToken(), 0);
-            setKeyListener(null);
-            dismissDropDown();
-        } else {
-            isPopup = false;
-        }
-    }
-
-    @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (!isEnabled())
             return false;
